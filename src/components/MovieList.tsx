@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import useMovieList from "../hooks/useMovies";
 import MovieCard from "./MovieCard";
+import { GenresContext } from "../context/genres.context";
 
 const MovieList = () => {
-  const { movieLists } = useMovieList();
+  const { genres } = useContext(GenresContext);
+  const { movieLists } = useMovieList(genres);
+
   return (
     <div className="p-3 mb-4">
       <h1 className="text-4xl font-semibold p-5 py-8">Movies</h1>

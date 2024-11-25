@@ -1,11 +1,11 @@
 import { MovieResult } from "../hooks/useMovies";
 import { Card, CardContent } from "./ui/card";
 
-interface Props {
+interface IMovieCardProps {
   movieResult: MovieResult;
 }
 
-const MovieCard = ({ movieResult }: Props) => {
+const MovieCard: React.FC<IMovieCardProps> = ({ movieResult }) => {
   return (
     <Card className="border-0">
       <CardContent>

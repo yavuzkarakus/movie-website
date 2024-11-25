@@ -2,10 +2,10 @@ import { TvShow } from "../hooks/useTvShowList";
 import { Card, CardContent } from "./ui/card";
 
 interface ITvShowCardProps {
-  tvShowResult: TvShow,
+  tvShowResult: TvShow;
 }
 
-const TvShowCard: React.FC<ITvShowCardProps> = ({tvShowResult}) => {
+const TvShowCard: React.FC<ITvShowCardProps> = ({ tvShowResult }) => {
   return (
     <Card className="border-0">
       <CardContent>

@@ -13,12 +13,16 @@ export interface MovieResult {
   name?: string;
 }
 
-const useMovieList = () => {
+const useMovieList = (genres?: number | null) => {
   const [movieLists, setMovieLists] = useState<MovieResult[]>();
 
   const fetchMovieList = async () => {
     try {
-      const res = await apiClient.get("/discover/movie");
+      const res = await apiClient.get("/discover/movie", {
+        params: {
+          with_genres: genres,
+        },
+      });
       setMovieLists(res.data.results);
       //   console.log(res.data.results);
     } catch (error) {}
@@ -26,7 +30,7 @@ const useMovieList = () => {
 
   useEffect(() => {
     fetchMovieList();
-  }, []);
+  }, [genres]);
 
   return { movieLists };
 };
