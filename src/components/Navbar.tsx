@@ -37,6 +37,7 @@ const Navbar = () => {
         src={logo}
         alt="logo"
         className="md:h-14 sm:h-9 h-9 hover:opacity-80 cursor-pointer"
+        onClick={() => navigate("/")}
       />
       <div className="flex gap-3 items-center">
         <form onSubmit={handleSubmit}>
