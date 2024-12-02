@@ -1,13 +1,20 @@
 import { MovieResult } from "../hooks/useMovies";
 import { Card, CardContent } from "./ui/card";
+import { useNavigate } from "react-router";
 
 interface IMovieCardProps {
   movieResult: MovieResult;
 }
 
 const MovieCard: React.FC<IMovieCardProps> = ({ movieResult }) => {
+  const navigate = useNavigate();
   return (
-    <Card className="border-0">
+    <Card
+      className="border-0"
+      onClick={() => {
+        navigate(`/player/movie/${movieResult.id}`);
+      }}
+    >
       <CardContent>
         <div>
           <img

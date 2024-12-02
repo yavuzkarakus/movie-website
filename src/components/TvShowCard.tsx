@@ -1,13 +1,20 @@
 import { TvShow } from "../hooks/useTvShowList";
 import { Card, CardContent } from "./ui/card";
+import { useNavigate } from "react-router";
 
 interface ITvShowCardProps {
   tvShowResult: TvShow;
 }
 
 const TvShowCard: React.FC<ITvShowCardProps> = ({ tvShowResult }) => {
+  const navigate = useNavigate();
   return (
-    <Card className="border-0">
+    <Card
+      className="border-0"
+      onClick={() => {
+        navigate(`/player/tv/${tvShowResult.id}`);
+      }}
+    >
       <CardContent>
         <div>
           <img
